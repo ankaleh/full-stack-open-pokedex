@@ -18,11 +18,12 @@ jobs:
         run: npm run eslint
       - name: build
         run: npm run build
-      
+      - name: test
+        run: npm test
       - name: e2e tests
         uses: cypress-io/github-action@v2
         with:
-          command: npm run test:e2e
+          command: ./node_modules/.bin/cypress
           start: npm run start-prod
           wait-on: 'http://localhost:5000'
       
