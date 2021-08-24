@@ -16,7 +16,17 @@ jobs:
         with:
           node-version: '12.x'
       - name: npm install 
-        run: npm install  
+        run: npm install
+
+      - name: commits
+        env:
+          COMMITS: ${{ toJson(github.event.commits) }}
+        run: echo "$COMMITS"
+      - name: commit messages
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+        run: echo "$COMMIT_MESSAGES"
+        
       - name: lint
         run: npm run eslint
       - name: build
