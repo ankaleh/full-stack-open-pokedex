@@ -21,6 +21,16 @@ describe('Pokedex', function() {
   })
 })
 
+describe('Pokedex', function() {
+  it('pokemon page can be navigated to', function() {
+    cy.visit('http://localhost:5000')
+    cy.get('[href="/pokemon/ivysaur"]', { timeout: 6000 }).click()
+    cy.get(':nth-child(2) > .pokemon-ability-name').should('have.text', 'chlorophyll')
+    /* cy.get(':nth-child(2) > .pokemon-ability-name')
+    cy.contains('Chlorophyll') */
+  })
+})
+
 
 /* describe('example to-do app', () => {
   beforeEach(() => {
