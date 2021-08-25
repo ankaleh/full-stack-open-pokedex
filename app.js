@@ -9,7 +9,7 @@ app.get('/health', (req, res) => {
 })
 
 app.get('/version', (req, res) => {
-  res.send('Tämän ei pitäisi näkyä Herokussa - uusi yritys.') // change this string to ensure a new version deployed
+  res.send('Versio 0.0.4') // change this string to ensure a new version deployed
 })
 
 app.use(express.static('dist'))
